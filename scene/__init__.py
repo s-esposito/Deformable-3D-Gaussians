@@ -59,6 +59,9 @@ class Scene:
         elif os.path.exists(os.path.join(args.source_path, "transforms.json")):
             print("Found calibration_full.json, assuming Dynamic-360 data set!")
             scene_info = sceneLoadTypeCallbacks["dynamic360"](args.source_path)
+        elif os.path.exists(os.path.join(args.source_path, "pi3.npz")):
+            print("Found pi3.npz, assuming Pi3 data set!")
+            scene_info = sceneLoadTypeCallbacks["pi3"](args.source_path)
         else:
             assert False, "Could not recognize scene type!"
 

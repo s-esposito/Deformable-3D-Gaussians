@@ -13,6 +13,8 @@ import os
 import sys
 from PIL import Image
 from typing import NamedTuple, Optional
+
+from matplotlib import image
 from scene.colmap_loader import read_extrinsics_text, read_intrinsics_text, qvec2rotmat, \
     read_extrinsics_binary, read_intrinsics_binary, read_points3D_binary, read_points3D_text
 from utils.graphics_utils import getWorld2View2, focal2fov, fov2focal
@@ -20,6 +22,7 @@ import numpy as np
 import json
 import imageio
 from glob import glob
+from tqdm import tqdm
 import cv2 as cv
 from pathlib import Path
 from plyfile import PlyData, PlyElement
